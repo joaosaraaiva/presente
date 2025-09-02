@@ -1,0 +1,169 @@
+/* Importando fontes para um visual mais bonito */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --cor-primaria: #ff8fab;
+    --cor-secundaria: #f8c9d4;
+    --cor-fundo: #fff;
+    --cor-texto: #333;
+}
+
+body.dark-mode {
+    --cor-primaria: #c3aed6;
+    --cor-secundaria: #5a5481;
+    --cor-fundo: #1b1b2f;
+    --cor-texto: #e0e0e0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    transition: background-color 0.4s, color 0.4s;
+    overflow: hidden;
+}
+
+section {
+    display: none; /* Todas as seções começam escondidas */
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+section.active {
+    display: flex; /* A seção ativa é exibida */
+    opacity: 1;
+}
+
+.conteudo {
+    z-index: 10;
+    padding: 20px;
+}
+
+h1, h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2.5rem, 8vw, 4rem); /* Tamanho de fonte responsivo */
+}
+
+button {
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.escondido { display: none !important; }
+
+/* 1. Página Inicial */
+#particulas-fundo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* 2. Mensagem Personalizada */
+#texto-maquina-escrever {
+    font-size: 1.5rem;
+    max-width: 800px;
+}
+
+/* 3. Galeria */
+.mural-polaroid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+.polaroid {
+    background: #fdfdfd;
+    padding: 15px 15px 30px 15px;
+    border: 1px solid #eee;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+    transform: rotate(calc(var(--rotacao, 0) * 1deg)); /* Rotação será definida no JS */
+    transition: transform 0.4s;
+    cursor: pointer;
+}
+.polaroid:hover {
+    transform: scale(1.1) rotate(0deg) !important;
+    z-index: 20;
+}
+.polaroid img { max-width: 200px; }
+.polaroid p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+/* 4. Mini Jogo */
+#container-baloes {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+}
+.balao {
+    width: 70px;
+    height: 90px;
+    background-color: var(--cor-primaria);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: absolute;
+    bottom: -100px; /* Começa fora da tela */
+    cursor: pointer;
+    animation: subir 10s linear infinite;
+    opacity: 0.8;
+}
+.balao:before {
+    content: "";
+    position: absolute;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid var(--cor-primaria);
+    bottom: -8px; left: 50%; transform: translateX(-50%);
+}
+@keyframes subir {
+    to { transform: translateY(-100vh); }
+}
+
+#modal-mensagem {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 100;
+}
+.modal-conteudo {
+    background: var(--cor-fundo);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+.modal-conteudo img { max-width: 80%; border-radius: 5px; }
+#btn-fechar-modal { position: absolute; top: 10px; right: 20px; font-size: 2.5rem; cursor: pointer; }
+
+/* 5. Surpresa Final */
+#canvas-fogos { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+.mensagem-final { font-size: 2rem; font-weight: bold; }
+
+/* 6. Detalhes Extras */
+.controles { position: fixed; top: 15px; right: 15px; z-index: 1000; }
+#toggle-tema { font-size: 1.5rem; background: none; border: none; padding: 0; }

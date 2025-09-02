@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uma Surpresa Para Você</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ====================
+         1. PÁGINA INICIAL
+    ===================== -->
+    <section id="pagina-inicial" class="active">
+        <div id="particulas-fundo"></div>
+        <div class="conteudo">
+            <h1>Hoje não é um dia qualquer…</h1>
+            <button id="btn-descobrir">Descubra seu presente</button>
+        </div>
+    </section>
+
+    <!-- =======================
+         2. MENSAGEM PERSONALIZADA
+    ======================== -->
+    <section id="mensagem-personalizada">
+        <div class="conteudo">
+            <p id="texto-maquina-escrever"></p>
+            <button id="btn-ver-galeria" class="escondido">Mas isso não é tudo…</button>
+        </div>
+    </section>
+
+    <!-- =======================
+         3. GALERIA INTERATIVA
+    ======================== -->
+    <section id="galeria">
+        <div class="conteudo">
+            <h2>Nossas Memórias</h2>
+            <div class="mural-polaroid">
+                <!-- Imagem 1 -->
+                <div class="polaroid">
+                    <img src="imagens/foto1.jpeg" alt="Lembrança especial">
+                    <p>Um dia incrível</p>
+                </div>
+                <!-- Adicione mais polaroids aqui se quiser -->
+            </div>
+            <button id="btn-ir-para-jogo">Pronta para se divertir?</button>
+        </div>
+    </section>
+
+    <!-- =================
+         4. MINI JOGO
+    ================== -->
+    <section id="mini-jogo">
+        <div class="conteudo">
+            <h2>Estoure os balões!</h2>
+            <p>Clique em cada balão para ver uma mensagem especial.</p>
+            <div id="container-baloes"></div>
+            <p>Pontuação: <span id="pontuacao">0</span> / 5</p>
+        </div>
+        <!-- Janela (modal) para exibir a mensagem do balão -->
+        <div id="modal-mensagem" class="escondido">
+            <div class="modal-conteudo">
+                <span id="btn-fechar-modal">&times;</span>
+                <img src="imagens/foto2.jpg" alt="Foto surpresa">
+                <p id="texto-balao"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================
+         5. SURPRESA FINAL
+    ==================== -->
+    <section id="surpresa-final">
+        <canvas id="canvas-fogos"></canvas>
+        <div class="conteudo">
+            <h2>Parabéns!</h2>
+            <p class="mensagem-final">Esse é o meu presente pra você. Feliz aniversário! 💖</p>
+            <!-- Descomente a linha abaixo para adicionar um vídeo -->
+            <!-- <video src="videos/surpresa.mp4" controls></video> -->
+        </div>
+    </section>
+
+    <!-- ==================
+         6. DETALHES EXTRAS
+    =================== -->
+    <div class="controles">
+        <button id="toggle-tema">🌙</button>
+    </div>
+
+    <!-- Scripts externos para efeitos (importante mantê-los aqui) -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typeit@8.7.0/dist/index.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
